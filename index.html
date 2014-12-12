@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Layout</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="./bootstrap-3.2.0-dist/css/bootstrap.min.css">
+<link href="./font-awesome-4.1.0/css/font-awesome.min.css" type="text/css"  rel="stylesheet">
+<!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<style>
+  body {
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	min-width: 960px;
+	font-size: 16px;
+  }
+
+  header {
+    height: 77px;
+    padding: 0 50px 20px 50px;
+    border-bottom: 1px dashed #afafaf;
+	border-top: 4px solid black;
+	position: fixed;
+	width: 100%;
+	background: #ffffff;
+  }
+  header .logo {
+	display: block;
+	float: left;
+	margin-top: 16px;
+	width: 200px;
+	height: 43px;
+	background:url('logo.png') white no-repeat;
+  }
+  header nav .nav-slider {
+	position: absolute;
+	top: 0;
+	width: 100px;
+	height: 4px;
+	background: #FFCC33;
+  }
+  header nav {
+	display: block;
+	position: relative;
+	float: right;
+	height: 100%;
+	padding-top: 24px;
+	border-top: 1px solid #EEEEEE;
+  }  
+  header nav a {
+	color: #AAAAAA;
+	margin: 13px;
+	text-decoration: none;
+  } 
+  header nav a:hover, header nav a.nav-item.active {
+	color: black;
+	text-decoration: none;
+  }
+  div.content-container {
+	padding-top: 77px;
+	margin: auto 50px;
+  }
+  div.content {
+	margin-top: 20px;
+  }
+  footer {
+	border-top: 1px dashed #afafaf;
+    background: #efefef;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	color: #333333;
+	border-bottom: 4px solid black;
+  }
+  footer .follow-me {
+	text-align: center;
+	font-size: 16px;
+	margin: 15px;
+  }
+  footer .follow-me a {
+	margin: 0 7px;
+	text-decoration: none;
+	cursor: pointer;
+	color: #666666;
+  }
+  footer .follow-me a:hover {
+	color: #000000;
+  }
+  footer .follow-me a div {
+  	display: inline-block;
+  }
+  footer .follow-me a .icon {
+	font-size: 22px;
+  }
+  .icon-github, .icon-linkedin {
+	position: absolute;
+  } 
+  .text-linkedin, .text-github {
+	margin-left: 28px;
+  }
+  
+  .spinner {
+  margin: 100px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  text-align: center;
+  
+  -webkit-animation: rotate 2.0s infinite linear;
+  animation: rotate 2.0s infinite linear;
+}
+
+.dot1, .dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #999999;
+  border-radius: 100%;
+  
+  -webkit-animation: bounce 2.0s infinite ease-in-out;
+  animation: bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+  top: auto;
+  bottom: 0px;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+@-webkit-keyframes bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+
+.loading .content {filter: alpha(opacity=0); opacity: 0; -webkit-transform: translateX(-10px);}
+.anim-load .content {-webkit-transition: all .8s ease; -moz-transition: all .8s ease; -ms-transition: all .8s ease; -o-transition: all .8s ease; transition: all .8s ease;}
+
+
+</style>
+<style>
+@font-face {
+    font-family: gj;
+    src: url(fonts/icomoon/gj.eot);
+    src: url(fonts/icomoon/gj.eot?#iefix) format("embedded-opentype"), url(fonts/icomoon/gj.woff) format("woff"), url(fonts/icomoon/gj.ttf) format("truetype"), url(fonts/icomoon/gj.svg#gj) format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+[class*=" icon-"], [class^=icon-] {
+    font-family: gj;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-linkedin:before {
+    content: "\e601"}
+.icon-github:before {
+    content: "\e602"}
+</style>
+</head>
+<body class="loading anim-load">
+  
+  <header>
+	<a class="logo" href="#"></a>
+	<nav class="nav">
+		<a id="home" class="nav-item active" href="#"><i class="fa fa-home fa-fw"></i> Home</a>
+		<a id="portfolio" class="nav-item" href="#"><i class="fa fa-laptop fa-fw"></i> Portfolio</a>
+		<a id="skills" class="nav-item" href="#"><i class="fa fa-cogs fa-fw"></i> Skills</a>	
+		<a id="resume" class="nav-item" href="#"><i class="fa fa-info-circle fa-fw"></i> Resume</a>
+		<a id="contact" class="nav-item" href="#"><i class="fa fa-comments-o fa-fw"></i> Contact</a>
+		<div class="nav-slider"></div>
+	</nav>
+  </header>
+  <div class="content-container">
+	<div class="content">
+		  Hello, I'm <span style="color:red">Sergey Kolesov</span>, freelance web developer based in Australia.
+		  
+		  Being graphic designer was my biggest dream which I’ve been living for 8 years. My goal is to create user-friendly and timeless websites that attract human eyes.
+		  
+		  I am freelancer specializing in fields of web design, print design, logo design and basically everything.
+	I don’t like sloppy work that’s why I create every single design with precision. At first it’s me who has to be satisfied with my work then can customer see it. I would never give my clients something which I’m not identified with.
+
+	I’m open for new opportunities and external cooperation. If you have any question please feel free to contact me via email or give me a call.
+	I’m passionate about doing great work with great people: I’ve worked on big brands and with one-man bands, designing sites, brand identity and print work to help them grow.
+
+
+
+	LIKE WHAT YOU'VE SEEN?
+
+	I’m always happy to discuss a brief with new clients. My work includes all aspects of design, across both print and digital. I’ve helped dozens of businesses to evolve their brand, refine their tone or just increase their sales. If you’ve got a problem, a project or an idea you’d like to discuss, drop me a line.
+
+	Who? http://thegregthompson.com/
+	About Me
+
+	I am a web developer from Bucks County, PA(North of Philadelphia). I've been doing it for 6 years now and have been evolving from the jump. It would be hard to classify myself with one role(even though I just did to start this paragraph) because I tend to learn new things quickly and I have a passion for the next big thing. Besides web development I also tinker with stuff like Arduino, Raspberry Pi and other things microcontroller, multidisciplinary related. I also really appreciate the hard workers of the industry, the ones who know you don't need to write books or go to festivals and conferences to be a good fucking developer.
+
+	Some of my relevant skills are:
+
+	HTML/CSS
+	JavaScript/jQuery(front end Dev.)
+	PHP/MySql
+	CodeIgniter(and other frameworks)
+	CMS(ExpressionEngine, WordPress)
+	Node.js
+	Git(version control)
+	APIs(Facebook, Twitter, Instagram and any other one you can think of)
+	Work History
+
+	Since I started learning this jazz I've been freelancing(2007). In 2011, after I graduated college, I was officially employed in the magical Healthcare industry at Dudnyk. After a brief stint as a developer there I moved on to Neiman where I've done a large chunk of my awesome work.
+
+	Outside of Work
+
+	I live in Lower Bucks County and I love working on my house, building shit out of wood and being outside. I have a German Shepherd named Hank and when I get some free time I ride my Harley. I also coach little league baseball and occasionally brew beer.
+		
+	Hello.
+
+I’m a Senior Product Designer based in Rio de Janeiro. I build awesome things for Web and Mobile. I hope you enjoy my work. If you have a new project or want to know more about Web/Mobile Stuff. Let me know, i’d love to help.
+
+let's start a new project
+download my cv	
+		</div>
+  </div>
+  <div class="spinner">
+		  <div class="dot1"></div>
+		  <div class="dot2"></div>
+  </div>
+
+  <footer>
+	<div class="follow-me">
+		Follow me on 
+		<a class="follow-linkedin">
+			<span class="icon icon-linkedin"></span>
+			<span class="text-linkedin">LinkedIn</span>
+		</a>
+		<a class="follow-github">
+			<span class="icon icon-github"></span>
+			<span class="text-github">Github</span>
+		</a>
+		and
+		<a class="follow-email">hello@kolesov.com.au</a>
+			
+	</div>
+  </footer>
+  
+  <script src="jquery-1.11.1.min.js"></script>
+  <script src="./bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+  <script>
+	$(document).ready(function() {
+		$(".nav a.nav-item").click(function(e) {
+			e.preventDefault();
+			var $nav = $(this);
+			
+			$('.content').html('');
+			$('.spinner').show();
+			$('body').addClass("loading").addClass("anim-load");
+			$.ajax({
+			  url: "http://localhost/website/123.html",
+			}).done(function(html) {
+				$(".nav a.nav-item").each(function() { $(this).removeClass("active"); });
+				$nav.addClass("active");
+			
+				setTimeout(function(){
+					  var $body = $('body');
+					  $body.removeClass('loading');
+					  setTimeout(function(){
+						$body.removeClass('anim-load'); 
+					  }, 1000);
+					 $('.spinner').hide();
+					 $('.content').html(html);
+				}, 600);
+			});
+			
+		});
+	
+		$(".nav a.nav-item").hover(function () {
+			$(this).addClass("hovered");
+			$(".nav-slider").stop().animate({ left: $(this).position().left, width: $(this).outerWidth(this) }, 200);
+		}, function() { 
+			$(this).removeClass("hovered");
+			setTimeout(
+			  function() 
+			  {
+				if ($(".nav a.nav-item.hovered").length == 0)
+				{		
+					$(".nav-slider").stop().animate( { left: $(".nav .nav-item.active").position().left, width: $(".nav .nav-item.active").outerWidth(this) }, 200);
+				}
+		      }, 500);
+			
+		});
+	});
+	
+	$(window).load(function(){
+	  var $body = $('body');
+	  $body.removeClass('loading');
+	  setTimeout(function(){
+		$body.removeClass('anim-load'); 
+	  }, 1000);
+	});
+  </script>
+</body>
+</html>
