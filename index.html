@@ -26,7 +26,8 @@
   </header>
   <div class="content-container">
 	<div class="content">
-		  Hello, I'm <span style="color:red">Sergey Kolesov</span>, freelance web developer based in Australia.
+		<div class="wrapper-home">
+			Hello, I'm <span style="color:red">Sergey Kolesov</span>, freelance web developer based in Australia.
 		  
 		  Being graphic designer was my biggest dream which I’ve been living for 8 years. My goal is to create user-friendly and timeless websites that attract human eyes.
 		  
@@ -70,12 +71,26 @@
 I’m a Senior Product Designer based in Rio de Janeiro. I build awesome things for Web and Mobile. I hope you enjoy my work. If you have a new project or want to know more about Web/Mobile Stuff. Let me know, i’d love to help.
 
 let's start a new project
-download my cv	
+download my cv
 		</div>
-  </div>
-  <div class="spinner">
-		  <div class="dot1"></div>
-		  <div class="dot2"></div>
+		<div class="wrapper-portfolio">
+			portfolio
+		</div>
+		<div class="wrapper-skills">
+			<h1>skills</h1>
+			<h2>skills</h2>
+			<h3>skills</h3>
+			<h4>skills</h4>
+			<h5>skills</h5>
+			<h6>skills</h6>
+		</div>
+		<div class="wrapper-resume">
+			resume
+		</div>
+		<div class="wrapper-contact">
+			contact
+		</div>  	
+	</div>
   </div>
 
   <footer>
@@ -99,16 +114,18 @@ download my cv
   <script src="./bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
   <script>
 	$(document).ready(function() {
+		$('[class^=wrapper-]').hide();
+		$('.wrapper-home').show();
+	
 		$(".nav a.nav-item").click(function(e) {
 			e.preventDefault();
 			var $nav = $(this);
+			$('[class^=wrapper-]').hide();
 			
-			$('.content').html('');
-			$('.spinner').show();
 			$('body').addClass("loading").addClass("anim-load");
-			$.ajax({
+			/*$.ajax({
 			  url: "123.html",
-			}).done(function(html) {
+			}).done(function(html) {*/
 				$(".nav a.nav-item").each(function() { $(this).removeClass("active"); });
 				$nav.addClass("active");
 			
@@ -117,11 +134,11 @@ download my cv
 					  $body.removeClass('loading');
 					  setTimeout(function(){
 						$body.removeClass('anim-load'); 
-					  }, 1000);
-					 $('.spinner').hide();
+					  }, 500);
 					 //$('.content').html(html);
+					 $('.wrapper-'+$nav.attr("id")).show();
 				}, 600);
-			});
+			//});
 			
 		});
 	
