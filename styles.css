@@ -47,6 +47,9 @@
 	color: black;
 	text-decoration: none;
   }
+  header, footer, .content {
+  	min-width: 860px;
+  }
   div.content-container {
 	padding-top: 77px;
 	margin: auto 50px;
