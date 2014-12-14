@@ -55,7 +55,8 @@
   div.content-container {
 	padding-top: 77px;
 	margin: 0 auto;
-	width: 960px
+	width: 960px;
+	padding-bottom: 77px;
   }
   div.content {
 	margin-top: 20px;
@@ -114,7 +115,7 @@
 		height: 100%;
 		float: left;
 		padding: 10px;
-		opacity: 0.4;
+		opacity: 0.6;
 	}
 	.kwicks-horizontal > li.kwicks-expanded {
 		opacity: 1;
