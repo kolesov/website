@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset=utf-8 />
-<title>Layout</title>
+<meta http-equiv="Content-Type" content="text/html">
+<title>Sergey Kolesov</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="./bootstrap-3.2.0-dist/css/bootstrap.min.css">
 <link href="./font-awesome-4.1.0/css/font-awesome.min.css" type="text/css"  rel="stylesheet">
@@ -81,6 +82,82 @@ download my cv
 		<div class="wrapper-portfolio">
 			<h1>Some of my works</h1>
 			<h2>Essentially, this is my future portfolio website. I'm working on it at the moment. You happen to see it earlier, you can get a basic grasp of how it would look like.</h2>
+
+			<nav class="slidernav">
+			  <div id="navbtns" class="clearfix">
+				<a href="#" class="previous">prev</a>
+				<a href="#" class="next">next</a>
+			  </div>
+			</nav>
+			
+			<div class="crsl-items" data-navigation="navbtns">
+			  <div class="crsl-wrap">
+				<div class="crsl-item">
+				  <div class="thumbnail">
+					<img src="img/thumb01.jpg" alt="nyc subway">
+					<span class="postdate">Feb 16, 2014</span>
+				  </div>
+				  
+				  <h3><a href="#">Lorem Ipsum Dolor Sit</a></h3>
+				  
+				  <p>Suspendisse laoreet eu tortor vel dapibus. Etiam auctor nisl mattis, ornare nibh eu, lobortis leo. Sed congue mi eget velit dictum, id dictum massa tempus. Cras lobortis lectus neque. Fusce aliquet mauris ac bibendum pharetra.</p>
+				  
+				  <p class="readmore"><a href="#">Read More &raquo;</a></p>
+				</div><!-- post #1 -->
+				
+				<div class="crsl-item">
+				  <div class="thumbnail">
+					<img src="img/thumb02.jpg" alt="danny antonucci">
+					<span class="postdate">Feb 19, 2014</span>
+				  </div>
+				  
+				  <h3><a href="#">A Look Back over A.K.A Cartoon</a></h3>
+				  
+				  <p>Vestibulum in venenatis velit. Praesent commodo eget purus sed interdum. Curabitur faucibus purus ut erat fermentum posuere. Suspendisse blandit viverra sagittis. Nullam cursus scelerisque lorem ut ornare.</p>
+				  
+				  <p class="readmore"><a href="#">Read More &raquo;</a></p>
+				</div><!-- post #2 -->
+				
+				<div class="crsl-item">
+				  <div class="thumbnail">
+					<img src="img/thumb03.jpg" alt="watercolor paints">
+					<span class="postdate">Feb 23, 2014</span>
+				  </div>
+				  
+				  <h3><a href="#">Watercoloring for Beginners</a></h3>
+				  
+				  <p>Cras eget interdum nunc. Nam suscipit congue augue, id interdum risus adipiscing nec. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla non diam id nisi tempus sodales.</p>
+				  
+				  <p class="readmore"><a href="#">Read More &raquo;</a></p>
+				</div><!-- post #3 -->
+				
+				<div class="crsl-item">
+				  <div class="thumbnail">
+					<img src="img/thumb04.jpg" alt="apple ipod classic photo">
+					<span class="postdate">Mar 02, 2014</span>
+				  </div>
+				  
+				  <h3><a href="#">Classic iPods are Back!</a></h3>
+				  
+				  <p>Phasellus condimentum enim nisl, volutpat dapibus turpis euismod nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec id elit lorem. Vivamus at eros elit. Nullam cursus euismod purus.</p>
+				  
+				  <p class="readmore"><a href="#">Read More &raquo;</a></p>
+				</div><!-- post #4 -->
+				
+				<div class="crsl-item">
+				  <div class="thumbnail">
+					<img src="img/thumb05.jpg" alt="web design magazines">
+					<span class="postdate">Mar 11, 2014</span>
+				  </div>
+				  
+				  <h3><a href="#">The 10 Best Web Design Magazines</a></h3>
+				  
+				  <p>Morbi quis tempus leo, eget vestibulum quam. Pellentesque ac orci urna. Proin vitae neque vel metus pulvinar luctus vitae eu nulla.</p>
+				  
+				  <p class="readmore"><a href="#">Read More &raquo;</a></p>
+				</div><!-- post #5 -->
+			  </div><!-- @end .crsl-wrap -->
+			</div><!-- @end .crsl-items -->
 		</div>
 		<div class="wrapper-skills">
 			<h1>Skills</h1>
@@ -372,27 +449,17 @@ download my cv
 	</div>
   </footer>
   
-  <script src="jquery-1.11.1.min.js"></script>
-  <script src='kwicks/jquery.kwicks.js' type='text/javascript'></script>
-  <script src="./bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
-  <script type='text/javascript'>
-	$(function() {
-			$('.kwicks-vertical').kwicks({
-				maxSize : 200,
-				isVertical: true,
-				behavior: 'menu',
-				selectOnClick: false
-			});
-
-			$('.kwicks-horizontal').kwicks({
-				maxSize: 740,
-				behavior: 'menu',
-				selectOnClick: false
-			});
-		});
-  </script>
-  <script>
+  <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="./bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src='kwicks/jquery.kwicks.js' type='text/javascript'></script>
+  <script type="text/javascript" src="responsiveCarousel.min.js"></script>
+  
+  <script>  
 	$(document).ready(function() {
+	     $("a[href=#]").on('click', function(e) {
+			e.preventDefault();
+		  });
+	
 		$('[class^=wrapper-]').hide();
 		$('.wrapper-home').show();
 	
@@ -402,22 +469,19 @@ download my cv
 			$('[class^=wrapper-]').hide();
 			
 			$('body').addClass("loading").addClass("anim-load");
-			/*$.ajax({
-			  url: "123.html",
-			}).done(function(html) {*/
-				$(".nav a.nav-item").each(function() { $(this).removeClass("active"); });
-				$nav.addClass("active");
-			
-				setTimeout(function(){
-					  var $body = $('body');
-					  $body.removeClass('loading');
-					  setTimeout(function(){
-						$body.removeClass('anim-load'); 
-					  }, 500);
-					 //$('.content').html(html);
-					 $('.wrapper-'+$nav.attr("id")).show();
-				}, 600);
-			//});
+
+			$(".nav a.nav-item").each(function() { $(this).removeClass("active"); });
+			$nav.addClass("active");
+		
+			setTimeout(function(){
+				  var $body = $('body');
+				  $body.removeClass('loading');
+				  setTimeout(function(){
+					$body.removeClass('anim-load'); 
+				  }, 500);
+
+				 $('.wrapper-'+$nav.attr("id")).show();
+			}, 600);
 			
 		});
 	
@@ -445,6 +509,33 @@ download my cv
 		$body.removeClass('anim-load'); 
 	  }, 1000);
 	});
+  </script>
+  <script type="text/javascript">
+	$(function(){
+	  $('.crsl-items').carousel({
+		visible: 3,
+		itemMinWidth: 180,
+		itemEqualHeight: 370,
+		itemMargin: 9,
+	  });
+	});
+	</script>
+  <script type='text/javascript'>
+	$(function() {
+		$('.kwicks-vertical').kwicks({
+			maxSize : 200,
+			isVertical: true,
+			behavior: 'menu',
+			selectOnClick: false
+		});
+
+		$('.kwicks-horizontal').kwicks({
+			maxSize: 740,
+			behavior: 'menu',
+			selectOnClick: false
+		});
+	});
+
   </script>
 </body>
 </html>
